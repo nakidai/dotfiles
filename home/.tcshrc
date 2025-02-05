@@ -1,0 +1,46 @@
+setenv SHELL "`which tcsh`"
+setenv PATH "$PATH"
+
+if ($?prompt) then
+    set complete=enhance
+    set autolist=ambiguous
+
+    # set __prompt_key='$'
+    # if ($USER == "root") set __prompt_key='#'
+    set promptchars = '$#'
+
+    alias __git_current_branch 'git rev-parse --abbrev-ref HEAD >& /dev/null && echo "(`git rev-parse --abbrev-ref HEAD`) "'
+
+    set __reset_cursor="%{\e[3 q%}"
+    set __reset_color="%{\033[0m%}"
+    set __host_color="${__reset_color}%{\033[38;2;140;170;238m%}"
+    set __git_color="${__reset_color}%{\033[38;2;131;139;167m%}"
+    set __path_color="${__reset_color}%{\033[1m%}%{\033[38;2;202;158;230m%}"
+
+    alias precmd 'set __last_code=$?; source ~/.precmd.tcsh'
+
+    setenv APPIMAGELAUNCHER_DISABLE 1
+    setenv PATH $HOME/.local/bin:$PATH;
+endif
+
+set EDITOR=nvim
+
+alias .. "cd .."
+alias ... "cd ../.."
+alias .... "cd ../../.."
+alias ..... "cd ../../../.."
+
+alias dp    "doas pacman"
+alias dem   "doas emerge"
+alias dadd  "doas pkg_add"
+alias drem  "doas pkg_remove"
+alias stdn  "doas shutdown -ah 0"
+alias rbot  "doas reboot"
+alias dv    "doas vi"
+alias w     "xwininfo -root -children"
+alias ls    "ls --color"
+alias l     "ls -lAh"
+alias tcli  "transmission-cli"
+alias shooter "vectozavr-shooter -n Nakidai"
+alias nvidia "env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia"
+alias nvfox "env __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia MOZ_DISABLE_RDD_SANDBOX=1 LIBVA_DRIVER_NAME=nvidia __EGL_VENDOR_LIBRARY_FILENAMES=/usr/share/glvnd/egl_vendor.d/10_nvidia.json firefox"

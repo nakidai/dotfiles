@@ -1,0 +1,32 @@
+" config for openbsd vi
+
+se sw=4
+se et
+se ai
+se comment
+se nu
+se showfilename
+se smd
+
+" enter command buffer
+se cedit=
+" allow to do that as in nvim
+map q: :o
+
+se shell=/usr/bin/tcsh
+
+" some convenient things
+map t :ta 
+map  d :1d:0read !date +'.Dd \%B \%e, \%Y'
+map K wb"zywq:i:!man "zp
+" why vi doesn't have that ootb UnU
+map gg :0
+
+" uuuh i was practicing how to do mappings :3
+map  rq F""zdf":o"zp"zdl$"zdl0"zd$i:"zp
+map  rp F("zd%:o"zp"zdl$"zdl0"zd$i:"zp
+map  rc F(b"zdw"zd%:o"zp"zdl$"zdl0"zd$i:"zp
+
+" pretty useful imo
+ab inc #include
+ab mcs int main(int argc, char **argv){

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+NYASHNYATOR3000="$HOME/dwmscripts/nya.py"
+
+"$NYASHNYATOR3000" "$(xclip -selection clipboard -o -r)" | xclip -selection clipboard -r

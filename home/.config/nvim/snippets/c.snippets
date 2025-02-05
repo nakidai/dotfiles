@@ -1,0 +1,70 @@
+snippet mcs
+	#include <stdio.h>
+	#include <stdlib.h>
+
+	int main(int argc, char **argv)
+	{
+		$0
+		return 0;
+	}
+snippet guards
+	#ifndef ${1:NAME}
+	#define ${1:NAME}
+
+	${0:/* code */}
+
+	#endif /* ${1:NAME} */
+snippet com
+	/* $0 */
+snippet func
+	${1:void} ${2:function}(${3:void})
+	{
+		${0:/* code */}
+	}
+snippet proto
+	${1:void} ${2:function}(${0:void});
+snippet if1
+	(${1:true}) : ${2:/* if true */} ? ${0:/* if false */}
+snippet if
+	if (${1:true})
+	{
+		${0:/* code */}
+	}
+snippet ife
+	if (${1:true})
+	{
+		${2:/* code */}
+	} else
+	{
+		${0:/* code */}
+	}
+snippet eif
+	else if (${1:true})
+	{
+		${0:/* code */}
+	}
+snippet el
+	else
+	{
+		${0:/* code */}
+	}
+snippet wh
+	while (${1:true})
+	{
+		${0:/* code */}
+	}
+snippet forr
+	for (${1:i} = 0; ${1:i} < ${2:n}; ++${1:i})
+	{
+		${0:/* code */}
+	}
+snippet inc
+	#include "$0"
+snippet Inc
+	#include <$0>
+snippet def
+	#define $1 $0
+snippet struct
+	struct ${1:Structure} {
+		$0
+	};
