@@ -1,6 +1,7 @@
 " config for openbsd vi
 
 se sw=4
+se ts=16
 se et
 se ai
 se comment
@@ -16,7 +17,7 @@ map q: :o
 se shell=/usr/bin/tcsh
 
 " some convenient things
-map t :ta 
+" map t :ta 
 map  d :1d:0read !date +'.Dd \%B \%e, \%Y'
 map K wb"zywq:i:!man "zp
 " why vi doesn't have that ootb UnU
@@ -26,6 +27,12 @@ map gg :0
 map  rq F""zdf":o"zp"zdl$"zdl0"zd$i:"zp
 map  rp F("zd%:o"zp"zdl$"zdl0"zd$i:"zp
 map  rc F(b"zdw"zd%:o"zp"zdl$"zdl0"zd$i:"zp
+
+" copy-paste
+map  y mt:'m,'tw! ~/.yank
+map  p :r ~/.yank
+map  xy  y:!cat ~/.yank | xclip -selection clipboard -r
+map  xp :r !xclip -selection clipboard -o
 
 " pretty useful imo
 ab inc #include
